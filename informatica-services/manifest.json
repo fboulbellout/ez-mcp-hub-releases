@@ -1,0 +1,15 @@
+{
+  "versions": [
+    {
+      "version": "Built-in baseline (2026-10)",
+      "slug": "built-in-baseline-2026-10",
+      "file": "built-in-baseline-2026-10.json",
+      "date": "2026-10-21T21:46:27.791Z",
+      "notes": "Services shipped with EZ-MCP Hub 1.11.0, before the October IDMC release.",
+      "counts": {
+        "services": 19,
+        "categories": 5
+      }
+    }
+  ]
+}
