@@ -1,0 +1,445 @@
+{
+  "format": "ez-mcp-informatica-services",
+  "version": "Built-in baseline (2026-10)",
+  "notes": "Services shipped with EZ-MCP Hub 1.11.0, before the October IDMC release.",
+  "exportedAt": "2026-10-21T21:46:27.791Z",
+  "scope": "all",
+  "categories": [
+    {
+      "id": "claire",
+      "label": "CLAIRE AI agents",
+      "description": "Natural-language agents that plan and run multi-step data management work."
+    },
+    {
+      "id": "catalog",
+      "label": "Catalog & governance",
+      "description": "Search, explore, enrich and score assets in Data Governance and Catalog (CDGC)."
+    },
+    {
+      "id": "mdm",
+      "label": "Master data & data quality services",
+      "description": "Customer 360 master records and address verification."
+    },
+    {
+      "id": "ops",
+      "label": "Operations",
+      "description": "Jobs, logs, Secure Agents, connections, promotion and IPU usage."
+    },
+    {
+      "id": "admin",
+      "label": "Administration & security",
+      "description": "Users, roles and audit trails."
+    }
+  ],
+  "servers": [
+    {
+      "id": "claire-orchestrator",
+      "name": "CLAIRE Orchestrator",
+      "slug": "datamanagementorchestrator",
+      "category": "claire",
+      "access": "agent",
+      "description": "Single entry point into CLAIRE: plans end-to-end data management workflows and routes work to discovery, exploration, data quality, profiling, cleansing, integration and MDM skills.",
+      "tools": [
+        "orchestrate",
+        "orchestrate_master_data_analysis",
+        "get_skill_execution_updates",
+        "request_upload_url"
+      ],
+      "recommended": true,
+      "authMethods": [
+        "oauth2-client-credentials",
+        "oauth2.1",
+        "oauth2.1-confidential",
+        "jwt",
+        "session"
+      ]
+    },
+    {
+      "id": "claire-data-exploration",
+      "name": "CLAIRE Data Exploration Agent",
+      "slug": "dataexplorationagent",
+      "category": "claire",
+      "access": "agent",
+      "description": "Explore the actual data of cataloged data sets (CDGC) and MDM SaaS records in natural language: sample, filter, join, aggregate, compute metrics.",
+      "tools": [
+        "data_explore",
+        "master_data_explore",
+        "get_skill_execution_updates",
+        "request_upload_url"
+      ],
+      "authMethods": [
+        "oauth2-client-credentials",
+        "oauth2.1",
+        "oauth2.1-confidential",
+        "jwt",
+        "session"
+      ]
+    },
+    {
+      "id": "claire-data-quality",
+      "name": "CLAIRE Data Quality Agent",
+      "slug": "dataqualityagent",
+      "category": "claire",
+      "access": "agent",
+      "description": "Profile data, analyse quality, recommend and generate data quality rules, and cleanse data with CLAIRE.",
+      "tools": [
+        "data_profiling",
+        "data_quality_analysis",
+        "data_quality_cleansing",
+        "data_quality_rule_generation",
+        "data_quality_rule_recommendation",
+        "get_skill_execution_updates",
+        "request_upload_url"
+      ],
+      "authMethods": [
+        "oauth2-client-credentials",
+        "oauth2.1",
+        "oauth2.1-confidential",
+        "jwt",
+        "session"
+      ]
+    },
+    {
+      "id": "catalog-discovery",
+      "name": "Catalog Discovery",
+      "slug": "cdgccatalogdiscovery",
+      "category": "catalog",
+      "access": "read",
+      "description": "Discover and explore enterprise data assets in CDGC with natural language, keyword or structured queries; get full 360° asset details and relationships.",
+      "tools": [
+        "search_assets",
+        "get_asset_details"
+      ],
+      "recommended": true,
+      "authMethods": [
+        "oauth2-client-credentials",
+        "oauth2.1",
+        "oauth2.1-confidential",
+        "jwt",
+        "session"
+      ]
+    },
+    {
+      "id": "metadata-search",
+      "name": "CDGC Metadata Search",
+      "slug": "cdgcsearchmetadata",
+      "category": "catalog",
+      "access": "read",
+      "description": "Natural-language search over the catalog to ground LLM answers with governed asset names, types, descriptions and classifications.",
+      "tools": [
+        "search_metadata",
+        "get_asset_details"
+      ],
+      "authMethods": [
+        "oauth2-client-credentials",
+        "oauth2.1",
+        "oauth2.1-confidential",
+        "jwt",
+        "session"
+      ]
+    },
+    {
+      "id": "catalog-enrichment",
+      "name": "Catalog Enrichment",
+      "slug": "cdgccatalogenrichment",
+      "category": "catalog",
+      "access": "write",
+      "description": "Curate CDGC: add/remove data classifications, link glossary terms and update business names and descriptions.",
+      "tools": [
+        "edit_data_asset_business_glossaries",
+        "edit_data_asset_data_classifications",
+        "update_asset_business_metadata"
+      ],
+      "authMethods": [
+        "oauth2-client-credentials",
+        "oauth2.1",
+        "oauth2.1-confidential",
+        "jwt",
+        "session"
+      ]
+    },
+    {
+      "id": "dq-score",
+      "name": "CDGC Data Quality Score",
+      "slug": "cdgcdataqualityscore",
+      "category": "catalog",
+      "access": "read",
+      "description": "Retrieve overall and per-dimension data quality scores for business and technical assets.",
+      "tools": [
+        "get_asset_score"
+      ],
+      "authMethods": [
+        "oauth2-client-credentials",
+        "oauth2.1",
+        "oauth2.1-confidential",
+        "jwt",
+        "session"
+      ]
+    },
+    {
+      "id": "data-provisioning",
+      "name": "Data Provisioning",
+      "slug": "dataprovisioning",
+      "category": "catalog",
+      "access": "write",
+      "description": "Browse Data Marketplace collections and start governed data access (checkout) requests.",
+      "tools": [
+        "list_data_collections",
+        "list_delivery_targets",
+        "checkout_data_order"
+      ],
+      "authMethods": [
+        "oauth2-client-credentials",
+        "oauth2.1",
+        "oauth2.1-confidential",
+        "jwt",
+        "session"
+      ]
+    },
+    {
+      "id": "customer-identification",
+      "name": "Customer Identification",
+      "slug": "searchcustomer",
+      "category": "mdm",
+      "access": "read",
+      "description": "Search MDM SaaS for customer master records, get golden record details and related records.",
+      "tools": [
+        "search_master_record",
+        "get_master_record_details",
+        "get_related_records"
+      ],
+      "authMethods": [
+        "oauth2-client-credentials",
+        "oauth2.1",
+        "oauth2.1-confidential",
+        "jwt",
+        "session"
+      ]
+    },
+    {
+      "id": "address-verification",
+      "name": "Address Verification",
+      "slug": "",
+      "category": "mdm",
+      "access": "read",
+      "description": "Validate, standardise and geocode postal addresses for 240+ countries with Cloud Address Verification.",
+      "tools": [
+        "verify_address"
+      ],
+      "authMethods": [
+        "oauth2-client-credentials",
+        "oauth2.1",
+        "oauth2.1-confidential",
+        "jwt",
+        "session"
+      ]
+    },
+    {
+      "id": "job-management",
+      "name": "Job Management",
+      "slug": "jobmanagement",
+      "category": "ops",
+      "access": "write",
+      "description": "Run, monitor, stop and resume Data Integration tasks and taskflows.",
+      "tools": [
+        "run_mapping_task",
+        "run_published_taskflow",
+        "get_job_status",
+        "list_running_jobs",
+        "search_completed_jobs",
+        "stop_running_job",
+        "terminate_taskflow_runs",
+        "..."
+      ],
+      "authMethods": [
+        "oauth2-client-credentials",
+        "oauth2.1",
+        "oauth2.1-confidential",
+        "jwt",
+        "session"
+      ]
+    },
+    {
+      "id": "log-management",
+      "name": "Log Management",
+      "slug": "",
+      "category": "ops",
+      "access": "read",
+      "description": "Read historical Data Integration activity, session and error logs from the IDMC Monitor service.",
+      "tools": [
+        "search_activity_log",
+        "get_session_log",
+        "get_error_log"
+      ],
+      "authMethods": [
+        "oauth2-client-credentials",
+        "oauth2.1",
+        "oauth2.1-confidential",
+        "jwt",
+        "session"
+      ]
+    },
+    {
+      "id": "troubleshooting",
+      "name": "IDMC Troubleshooting (preview)",
+      "slug": "",
+      "category": "ops",
+      "access": "read",
+      "description": "Investigate operational issues across schedules, mappings, connections, jobs, Secure Agents and ingestion tasks. Preview: not for production.",
+      "tools": [
+        "ts_get_running_jobs",
+        "ts_get_activity_log",
+        "ts_get_agents",
+        "ts_get_mapping_details",
+        "ts_find_asset_dependencies",
+        "..."
+      ],
+      "authMethods": [
+        "oauth2-client-credentials",
+        "oauth2.1",
+        "oauth2.1-confidential",
+        "jwt",
+        "session"
+      ]
+    },
+    {
+      "id": "secure-agent-management",
+      "name": "Secure Agent Management",
+      "slug": "secureagentmanagement",
+      "category": "ops",
+      "access": "write",
+      "description": "Observe and repair Secure Agents and runtime environments; start and stop agent services.",
+      "tools": [
+        "list_agents",
+        "get_agent_service_status",
+        "start_agent_service",
+        "stop_agent_service",
+        "list_runtime_environments",
+        "..."
+      ],
+      "authMethods": [
+        "oauth2-client-credentials",
+        "oauth2.1",
+        "oauth2.1-confidential",
+        "jwt",
+        "session"
+      ]
+    },
+    {
+      "id": "connection-management",
+      "name": "Connection Management",
+      "slug": "connectionmanagement",
+      "category": "ops",
+      "access": "write",
+      "description": "Create, update, test and delete connections; discover connector schemas and runtime environments.",
+      "tools": [
+        "list_connections",
+        "get_connection",
+        "create_connection",
+        "update_connection",
+        "delete_connection",
+        "test_connection",
+        "get_connector_schema",
+        "..."
+      ],
+      "authMethods": [
+        "oauth2-client-credentials",
+        "oauth2.1",
+        "oauth2.1-confidential",
+        "jwt",
+        "session"
+      ]
+    },
+    {
+      "id": "asset-promotion",
+      "name": "IDMC Asset Promotion",
+      "slug": "diassetpromotion",
+      "category": "ops",
+      "access": "write",
+      "description": "Promote IDMC assets from development to production with export/import jobs and failure diagnostics.",
+      "tools": [
+        "search_assets",
+        "rest_export_start",
+        "export_status",
+        "rest_import_start",
+        "import_status",
+        "import_log",
+        "export_log"
+      ],
+      "authMethods": [
+        "oauth2-client-credentials",
+        "oauth2.1",
+        "oauth2.1-confidential",
+        "jwt",
+        "session"
+      ]
+    },
+    {
+      "id": "ipu-management",
+      "name": "IPU Management",
+      "slug": "ipumanagement",
+      "category": "ops",
+      "access": "read",
+      "description": "Export IPU consumption grouped by organization, project, asset or job.",
+      "tools": [
+        "request_metering_summary_export",
+        "request_project_metering_export",
+        "request_asset_metering_export",
+        "request_job_metering_export",
+        "get_metering_export_job_status"
+      ],
+      "authMethods": [
+        "oauth2-client-credentials",
+        "oauth2.1",
+        "oauth2.1-confidential",
+        "jwt",
+        "session"
+      ]
+    },
+    {
+      "id": "user-management",
+      "name": "User Management",
+      "slug": "usermanagement",
+      "category": "admin",
+      "access": "destructive",
+      "description": "Onboard and offboard IDMC users, assign roles and groups. Includes delete_user.",
+      "tools": [
+        "get_user_details",
+        "create_user",
+        "delete_user",
+        "add_roles_to_user",
+        "remove_roles_from_user",
+        "add_groups_to_user",
+        "remove_groups_from_user",
+        "get_role_details",
+        "get_user_group_details"
+      ],
+      "authMethods": [
+        "oauth2-client-credentials",
+        "oauth2.1",
+        "oauth2.1-confidential",
+        "jwt",
+        "session"
+      ]
+    },
+    {
+      "id": "audit-management",
+      "name": "Audit Management",
+      "slug": "auditmanagement",
+      "category": "admin",
+      "access": "read",
+      "description": "Read-only access to the IDMC audit trail and security log (logins, MFA, role changes).",
+      "tools": [
+        "search_audit_log",
+        "search_security_log"
+      ],
+      "authMethods": [
+        "oauth2-client-credentials",
+        "oauth2.1",
+        "oauth2.1-confidential",
+        "jwt",
+        "session"
+      ]
+    }
+  ]
+}
