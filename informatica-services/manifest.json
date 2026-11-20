@@ -1,6 +1,17 @@
 {
   "versions": [
     {
+      "version": "2026.11.20 - new mcp servers added & previous updated",
+      "slug": "20261120-new-mcp-servers-added-previous-updated",
+      "file": "20261120-new-mcp-servers-added-previous-updated.json",
+      "date": "2026-11-20T16:10:34.103Z",
+      "notes": "new mcp server added in production and tech sales pod",
+      "counts": {
+        "services": 58,
+        "categories": 8
+      }
+    },
+    {
       "version": "Built-in baseline (2026-10)",
       "slug": "built-in-baseline-2026-10",
       "file": "built-in-baseline-2026-10.json",
